@@ -36,14 +36,14 @@ public class Gaulois  {
 		 parler("Merci Druide, je sens que ma force est "+effetPotion+" fois decuplee");
 	 }
 	 
-	 public static void main(String[] args) { 
-		 Gaulois asterix = new Gaulois("asterix",8);
-		 Romain minus = new Romain("minus",1);
+//	 public static void main(String[] args) { 
+//		 Gaulois asterix = new Gaulois("asterix",8);
+//		 Romain minus = new Romain("minus",1);
 //		 System.out.println(asterix.getNom());
 //		 System.out.println(asterix);
 //		 System.out.println(asterix.prendreParole());
 //		 asterix.parler("txt");
 //		 asterix.frapper(minus);
-		 asterix.boirePotion(5);
-	 } 
+//		 asterix.boirePotion(5);
+//	 } 
  } 

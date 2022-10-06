@@ -5,10 +5,13 @@ public class Village {
 	private Chef chef;
 
 	public Village(String nom) {
-		super();
 		this.nom = nom;
 	}
-
+	
+	public void setChef(Chef chef) {
+		this.chef = chef;
+	}
+	
 	public String getNom() {
 		return nom;
 	}	

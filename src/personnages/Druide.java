@@ -20,7 +20,15 @@ public class Druide {
 		 parler("Bonjour,  je  suis  le  druide  "  +  nom  +  "  et  ma  potion  peut  aller d'une force " + effetPotionMin + " à " + effetPotionMax + "."); 
 	 } 
 	 
-	 public String getNom() { 
+	 public int getEffetPotionMin() {
+		return effetPotionMin;
+	}
+
+	public int getEffetPotionMax() {
+		return effetPotionMax;
+	}
+
+	public String getNom() { 
 		 return nom; 
 	 } 
 	 
@@ -32,20 +40,23 @@ public class Druide {
 		 return "Le druide " + nom + " : "; 
 	 } 
 	 
-	 private int preparerPotion() {
+	 public int preparerPotion() {
 		 Random test = new Random();
-		 forcePotion=test.nextInt(effetPotionMax);
+		 forcePotion=test.nextInt(effetPotionMax-effetPotionMin)+effetPotionMin;
 		 if (forcePotion>7) {
 			parler("j'ai prepare une super potion de force");
 		} else {
-			parler("Je n'ai pas trouvé tous les ingredients, ma potion est seulement de force");
+			parler("Je n'ai pas trouvé tous les ingredients, ma potion est seulement de force "+forcePotion);
 		}
 		 return 0;
 	 }
 	 
-	 public void booster(Gaulois test) {
-		 if (test.getNom()=="Obelix"); { //string.equalIgnoreCase
-			
+	 public void booster(Gaulois testG) {
+		 if (testG.getNom().equalsIgnoreCase("Obelix")){ 
+			parler("Non, Obélix !... Tu n'auras pas de potion magique!");
+			testG.parler("Par Bélénos, ce n'est pas juste");
+		}else{
+			testG.boirePotion(forcePotion);
 		}
 	 }
 	 

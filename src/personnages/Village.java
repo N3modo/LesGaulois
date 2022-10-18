@@ -34,9 +34,9 @@ public class Village {
 	}
 
 	public void afficherVillageois(Village village) {
-		System.out.println("Dans village du chef " + village.getChef()+" vivent les légendaires gaulois :");
-		for(int i=0;i<nbVillageois;i++) {
-			System.out.println("- "+ village.trouverHabitant(i) +"\n");
+		System.out.println("Dans village du chef " + village.getChef() + " vivent les légendaires gaulois :");
+		for (int i = 0; i < nbVillageois; i++) {
+			System.out.println("- " + village.trouverHabitant(i) + "\n");
 		}
 	}
 

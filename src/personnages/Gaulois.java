@@ -3,7 +3,9 @@ package personnages;
 public class Gaulois {
 	private String nom;
 	private int force;
+	private int nbTrophees;
 	private int effetPotion = 1;
+	private Equipement[] trophees = new Equipement[100];
 
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
@@ -22,9 +24,16 @@ public class Gaulois {
 		return "Le gaulois " + nom + " : ";
 	}
 
+//	public void frapper(Romain romain) {
+//		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+//		romain.recevoirCoup((force / 3) * effetPotion);
+//	}
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		romain.recevoirCoup((force / 3) * effetPotion);
+		Equipement[] trophy = romain.recevoirCoup((force / 3) * effetPotion);
+		for (int i = 0; trophy != null && i < trophy.length; i++, nbTrophees++) {
+			this.trophees[nbTrophees] = trophy[i];
+		}
 	}
 
 	@Override
@@ -37,6 +46,13 @@ public class Gaulois {
 		parler("Merci Druide, je sens que ma force est " + effetPotion + " fois decuplee");
 	}
 
+	public void faireUneDonnation(Musee muse) {
+		parler("Je donne au musee tous mes trophees :");
+		for(int i=0;i<nbTrophees;i++) {
+			muse.donnerTrophees(this,trophees[i]);
+		}
+		
+	}
 //	 public static void main(String[] args) { 
 //		 Gaulois asterix = new Gaulois("asterix",8);
 //		 Romain minus = new Romain("minus",1);
